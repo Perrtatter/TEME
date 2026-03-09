@@ -1,4 +1,4 @@
-![alt text](logo.png)
+![alt text](assets/logo.png)
 # TEME
 ## Tkinter_Encrypt_MEssenger
 A python tkinter based ( cross plateform ), for send encrypt message to computer on the same LAN ( Local Area Network ) 
@@ -6,4 +6,4 @@ A python tkinter based ( cross plateform ), for send encrypt message to computer
 
 ### Simple shema ( in french )
 
-![alt text](shema.png)
+![alt text](assets/shema.png)

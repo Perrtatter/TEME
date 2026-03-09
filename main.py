@@ -20,7 +20,7 @@ win.geometry("200x200")
 win.resizable(False,False)
 
 # Load the logo 
-image = PhotoImage(file="logo.png")
+image = PhotoImage(file="assets/logo.png")
 image_label = Label(win, image=image)
 image_label.pack()
 
