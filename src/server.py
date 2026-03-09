@@ -1,23 +1,29 @@
 import socket
-
-# Configuration
-HOST = "localhost"  # Adresse locale
-PORT = 4444        # Port d'écoute (doit être > 1024)
-
-# Création du socket (IPv4, TCP)
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind((HOST, PORT))
-    s.listen()
-
-    conn, addr = s.accept() # Attend une connection   
-    with conn:
-        #print(f"Connecté par {addr}")
-        while True:
-            data = conn.recv(1024) # Reçoit 1024 octets max
-            if not data:
-                break
-            print(f"Données reçues : {data.decode('utf-8')}")
+import json 
 
 
 
-input("Press [enter] to quit ...")
+class Server():
+
+    def __init__(self,host,port):
+        # configuration
+        self.host = host
+        self.port = port     
+
+    def blind_server(self):
+        # socket creation (IPv4, TCP)
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.bind((self.host,self.port))
+            s.listen()
+
+            # wait for a connection
+            conn, addr = s.accept()
+            while True:
+                data = conn.recv(1024) 
+                if not data:
+                    break
+                
+                # get data
+                data = data.decode('utf-8')
+                return data
+        

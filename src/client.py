@@ -1,18 +1,31 @@
 import socket
 
-# Create a TCP/IP socket
-sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Connect the socket to the port where the server is listening
-# Run : nc -lvnp 4444 on localhost 
-server_address = ("localhost", 4444)
-sock.connect(server_address)
+class Client():
 
-# Trying to send something
-PACKET = "Hello World!".encode("utf-8")
-sock.send(PACKET)
+    def __init__(self,username,ip):
+        # set base variable
+        self.username = username
+        self.ip = ip
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Close connection
-sock.close()
+    def send_message(self,message,server_dest,server_port):
 
-input("Press [enter] to quit ...")
+        # connect to server
+        self.sock.connect((server_dest,server_port))
+
+        # forge requested message 
+        payload = {
+            "username":self.ip,
+            "ip":self.ip,
+            "content":message
+        }
+
+        payload = str(payload)
+
+        # send something
+        packet = payload.encode("utf-8")
+        self.sock.send(packet)
+
+        # Close connection
+        self.sock.close()
