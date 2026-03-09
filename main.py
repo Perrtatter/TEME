@@ -3,7 +3,8 @@ from src.client import Client
 from src.server import Server
 
 
-
+# one windows from the listener 
+# one windows from the sender 
 
 
 # setup client / server
