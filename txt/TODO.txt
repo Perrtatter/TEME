@@ -1,0 +1,3 @@
+[ ] Add connection windows at the opening 
+[ ] Add host or guests Windows chooser 
+[ ] Add scroll Windows for message history 
