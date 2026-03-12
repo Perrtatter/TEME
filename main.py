@@ -23,8 +23,11 @@ if host_guests_choose == "host":
     host_ip = host_config_windows.ip
     host_port = host_config_windows.port
 
+    # get data
     server = Server(host=host_ip,port=host_port)
-    server.blind_server()
+    guests_data = server.blind_server()
+
+    print(guests_data)
     
 
 if host_guests_choose == "guests":
