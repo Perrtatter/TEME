@@ -11,7 +11,6 @@ from src.guests_config import GuestsConfigWindows
 from src.sender import SenderWindows
 
 import json
-import subprocess
 import platform
 import os
 import time
