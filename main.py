@@ -156,4 +156,17 @@ if host_guests_choose == "host":
     dest_port = host_port
 
 
+'''
+IF LOCALHOST
+
+Traceback (most recent call last):
+  File "/Users/mathys/Documents/code/GitHub/TEME/main.py", line 159, in <module>
+    client.send_message(message="Hello !!",server_dest=dest_ip,server_port=dest_port)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mathys/Documents/code/GitHub/TEME/src/client.py", line 15, in send_message
+    self.sock.connect((server_dest,server_port))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 9] Bad file descriptor
+'''
+
 client.send_message(message="Hello !!",server_dest=dest_ip,server_port=dest_port)
