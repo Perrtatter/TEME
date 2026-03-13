@@ -1,5 +1,5 @@
 import socket
-
+import json 
 
 class Client():
 
@@ -16,12 +16,11 @@ class Client():
 
         # forge requested message 
         payload = {
-            "username":self.ip,
-            "ip":self.ip,
+            "username":self.username,
             "content":message
         }
 
-        payload = str(payload)
+        payload = json.dumps(payload)
 
         # send something
         packet = payload.encode("utf-8")

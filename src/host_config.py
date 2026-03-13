@@ -14,22 +14,16 @@ class HostConfigWindows():
     
     def config_host(self):
             
-        def get_ip():
-            self.ip = ip_entry.get()
-            return self.ip 
-        
         def get_port():
             self.port = port_entry.get()
             self.port = int(self.port)
-            return self.port
-        
-        def submit():
-            get_port()
-            get_ip()
 
             messagebox.showinfo(title="TEME Host Config",message="Server running, waiting for guests connection ...")    
 
             win.destroy()
+            return self.port 
+
+            
 
         
         messagebox.showinfo(title="TEME Host Config",message="Enter your local ip in first input and port in second input")    
@@ -45,14 +39,13 @@ class HostConfigWindows():
         image_label = Label(win, image=image)
         image_label.place(x=50,y=50)
 
-        ip_entry = Entry(win,width=15,bg="white",fg="black")
-        ip_entry.place(x=35,y=150)
 
         port_entry = Entry(win,width=15,bg="white",fg="black")
-        port_entry.place(x=35,y=175)
+        port_entry.insert(0,"Port")
+        port_entry.place(x=35,y=150)
 
-        submit_button = Button(win,text="Start",command=submit)
-        submit_button.place(x=65,y=200)
+        submit_button = Button(win,text="Start",command=get_port)
+        submit_button.place(x=65,y=175)
 
         win.mainloop()
 
