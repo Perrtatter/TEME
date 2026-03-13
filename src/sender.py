@@ -14,6 +14,7 @@ class SenderWindows():
             
         def get_message():
             self.message = message_entry.get()
+            win.destroy()
             return self.message 
             
             

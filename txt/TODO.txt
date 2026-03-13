@@ -2,3 +2,4 @@
 [X] Add host or guests Windows chooser 
 [ ] Add scroll Windows for message history 
 [ ] Retrive guests ip for the server
+[ ] To better sender system ( fix while True )

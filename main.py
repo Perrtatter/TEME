@@ -141,32 +141,20 @@ listener_ip = client_ip
 listener_thread = Thread(target=listener_blind, args=(listener_ip,listener_port)) 
 listener_thread.start()
 
-# open sender
-sender_windows = SenderWindows(ico_file="icon.ico",logo_file="assets/logo.png")
-message = sender_windows.ask_message()
+# open sender at infinite
+while True:
+    sender_windows = SenderWindows(ico_file="icon.ico",logo_file="assets/logo.png")
+    message = sender_windows.ask_message()
 
 
-# send message 
-if host_guests_choose == "guests":
-    dest_ip = to_connect_ip
-    dest_port = to_connect_port
+    # send message 
+    if host_guests_choose == "guests":
+        dest_ip = to_connect_ip
+        dest_port = to_connect_port
 
-if host_guests_choose == "host":
-    dest_ip = guests_ip
-    dest_port = host_port
+    if host_guests_choose == "host":
+        dest_ip = guests_ip
+        dest_port = host_port
 
 
-'''
-IF LOCALHOST
-
-Traceback (most recent call last):
-  File "/Users/mathys/Documents/code/GitHub/TEME/main.py", line 159, in <module>
-    client.send_message(message="Hello !!",server_dest=dest_ip,server_port=dest_port)
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mathys/Documents/code/GitHub/TEME/src/client.py", line 15, in send_message
-    self.sock.connect((server_dest,server_port))
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-OSError: [Errno 9] Bad file descriptor
-'''
-
-client.send_message(message="Hello !!",server_dest=dest_ip,server_port=dest_port)
+    client.send_message(message=message,server_dest=dest_ip,server_port=dest_port)
