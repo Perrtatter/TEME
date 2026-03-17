@@ -1,4 +1,4 @@
-# import module
+# import modules
 from tkinter import messagebox
 from threading import Thread
 
